@@ -94,6 +94,41 @@ const portfolioItems = [
         category: "Business Art",
         image: "assets/img/customizedBusinessArt/1.jpeg",
         description: "A unified custom business card, envelope, and letterhead art package. Incorporates luxury gold borders and dark palettes to ensure the brand leaves a lasting professional mark at first glance."
+    },
+    {
+        id: 13,
+        title: "Elegant Event Invitation",
+        category: "Business Art",
+        image: "assets/img/customizedBusinessArt/2.jpeg",
+        description: "A bespoke event invitation design featuring intricate gold filigree borders and a minimalist layout. The design exudes sophistication and exclusivity, perfect for high-end corporate events or galas."
+    },
+    {
+        id: 14,
+        title: "Premium Product Packaging",
+        category: "Business Art",
+        image: "assets/img/customizedBusinessArt/3.jpeg",
+        description: "A custom packaging design for a luxury skincare line. The design incorporates elegant typography, subtle embossed patterns, and a refined color palette to create a visually stunning and tactilely pleasing unboxing experience."
+    },
+    {
+        id: 15,
+        title: "Luxury Letterhead Design",
+        category: "Business Art",
+        image: "assets/img/customizedBusinessArt/4.jpeg",
+        description: "A high-end letterhead design featuring a minimalist layout with gold accents. The design is tailored for premium brands seeking to make a strong impression through their corporate stationery."
+    },
+    {
+        id: 16,
+        title: "Corporate Envelope Design",
+        category: "Business Art",
+        image: "assets/img/customizedBusinessArt/5.jpeg",
+        description: "A custom envelope design that complements the corporate identity suite. The design features a sleek layout with gold detailing, ensuring that every piece of correspondence reflects the brand's commitment to quality and professionalism."
+    },
+    {
+        id: 17,
+        title: "Exclusive Event Branding",
+        category: "Business Art",
+        image: "assets/img/customizedBusinessArt/6.jpeg",
+        description: "A comprehensive branding package for an exclusive corporate event. The design includes custom invitations, signage, and promotional materials, all unified by a sophisticated aesthetic that emphasizes the event's prestige and exclusivity."
     }
 ];
 
