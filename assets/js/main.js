@@ -453,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageInput = document.getElementById("contact-message");
         const honeypot = document.getElementById("contact-form-company");
 
-        // Captcha Honeypot spam defense check
+        // Honeypot spam defense check
         if (honeypot.value !== "") {
             console.log("Spam detected, blocking submit.");
             return;
@@ -462,10 +462,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let isFormValid = true;
 
         // Reset errors
-        const fields = [nameInput, emailInput, serviceSelect, messageInput];
+        const fields = [nameInput, emailInput, messageInput];
         fields.forEach(field => {
             field.classList.remove("error");
         });
+        serviceSelect.classList.remove("error");
 
         // 1. Validate Name
         if (nameInput.value.trim() === "") {
@@ -480,48 +481,71 @@ document.addEventListener("DOMContentLoaded", () => {
             isFormValid = false;
         }
 
-        // 3. Validate Service Select
-        if (serviceSelect.value === "") {
-            serviceSelect.classList.add("error");
-            isFormValid = false;
-        }
-
-        // 4. Validate Message
+        // 3. Validate Message
         if (messageInput.value.trim() === "") {
             messageInput.classList.add("error");
             isFormValid = false;
         }
 
         if (!isFormValid) {
-            // Apply error shake trigger animation by removing/adding class
             return;
         }
 
-        // If form valid, start mock submission loading state
+        // Show loading state
         submitBtn.disabled = true;
         spinner.style.display = "inline-block";
         submitBtn.querySelector("span").textContent = "Sending...";
 
-        setTimeout(() => {
-            // Success State Response
+        // Prepare form data
+        const formData = new FormData();
+        formData.append("name", nameInput.value.trim());
+        formData.append("email", emailInput.value.trim());
+        formData.append("message", messageInput.value.trim());
+        formData.append("company", honeypot.value);
+
+        // Send to PHP
+        fetch("assets/php/contact.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
             submitBtn.disabled = false;
             spinner.style.display = "none";
             submitBtn.querySelector("span").textContent = "Send Message";
-            
-            // Show Success Notification Banner
-            formStatusText.textContent = "Your message was sent successfully! Zaid will respond within 24 hours.";
-            formStatus.className = "form-status success";
+
+            // Check if submission was successful
+            if (data.succesMessage === "" && data.nameMessage === "" && 
+                data.emailMessage === "" && data.messageMessage === "") {
+                // Success
+                formStatusText.textContent = "Your message was sent successfully! Zaid will respond within 24 hours.";
+                formStatus.className = "form-status success";
+                formStatus.style.display = "flex";
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    formStatus.style.display = "none";
+                }, 6000);
+            } else {
+                // Show validation errors
+                formStatusText.textContent = "Please check your inputs and try again.";
+                formStatus.className = "form-status error";
+                formStatus.style.display = "flex";
+                
+                if (data.nameMessage) nameInput.classList.add("error");
+                if (data.emailMessage) emailInput.classList.add("error");
+                if (data.messageMessage) messageInput.classList.add("error");
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            spinner.style.display = "none";
+            submitBtn.querySelector("span").textContent = "Send Message";
+            formStatusText.textContent = "Error sending message. Please try again.";
+            formStatus.className = "form-status error";
             formStatus.style.display = "flex";
-
-            // Reset form inputs
-            contactForm.reset();
-
-            // Clear Success Notification Banner after 5s
-            setTimeout(() => {
-                formStatus.style.display = "none";
-            }, 6000);
-
-        }, 1800);
+            console.error("Error:", error);
+        });
     });
 
     // ==========================================================================
