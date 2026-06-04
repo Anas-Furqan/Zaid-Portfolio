@@ -62,55 +62,34 @@ const portfolioItems = [
     },
     {
         id: 8,
-        title: "Urban Samurai",
-        category: "Character Art",
-        image: "assets/img/characterArt/3.jpeg",
-        description: "An editorial blend of traditional warrior armor with contemporary streetwear. The design features a bold high-contrast shadow composition, expressive post-apocalyptic apparel, and textured line art."
-    },
-    {
-        id: 9,
-        title: "The Neon Wanderer",
-        category: "Character Art",
-        image: "assets/img/characterArt/4.jpeg",
-        description: "A character portrait capturing a traveler in a futuristic rain-drenched megacity. Highlights include complex lens flare rendering, realistic water drops, and rich dark-teal background contrasts."
-    },
-    {
-        id: 10,
         title: "Astral Sentinel",
         category: "Character Art",
         image: "assets/img/characterArt/5.jpeg",
         description: "A cosmic guardian concept design featuring detailed metallic space armor and energy ribbons. Rendered in a high-fidelity illustration style suited for gaming splash arts and digital publication."
     },
     {
-        id: 11,
+        id: 9,
         title: "Shadow Assassin illustration",
         category: "Character Art",
         image: "assets/img/characterArt/6.jpeg",
         description: "A moody, low-key character art piece illustrating a rogue in stealth posture. Focuses on drapery folds, intricate leather detailing, and realistic lighting dynamics."
     },
     {
+        id: 10,
+        title: "Urban Samurai",
+        category: "Book Cover",
+        image: "assets/img/bookCovers/1.jpeg",
+        description: "An editorial blend of traditional warrior armor with contemporary streetwear. The design features a bold high-contrast shadow composition, expressive post-apocalyptic apparel, and textured line art."
+    },
+    {
+        id: 11,
+        title: "The Neon Wanderer",
+        category: "Book Cover",
+        image: "assets/img/bookCovers/2.jpeg",
+        description: "A character portrait capturing a traveler in a futuristic rain-drenched megacity. Highlights include complex lens flare rendering, realistic water drops, and rich dark-teal background contrasts."
+    },
+    {
         id: 12,
-        title: "Echoes of the Void",
-        category: "Book Cover",
-        image: "assets/img/bookCovers/book1.png",
-        description: "A premium fantasy novel cover design. Fuses beautiful custom calligraphy and hand-drawn relics with deep gold foil details on a textured dark background for maximum shelf appeal."
-    },
-    {
-        id: 13,
-        title: "Holographic Horizon",
-        category: "Book Cover",
-        image: "assets/img/bookCovers/book2.png",
-        description: "A minimalist sci-fi book cover design. Features high-contrast gold holographic geometry suspended over dark paper canvas, suggesting futuristic technologies and complex narrative plots."
-    },
-    {
-        id: 14,
-        title: "Whispers of the Dark",
-        category: "Book Cover",
-        image: "assets/img/bookCovers/book3.png",
-        description: "A suspenseful thriller book cover. Designed with dynamic noir shadow overlays, elegant modern serif typography, and gold details on a dark-themed linen background."
-    },
-    {
-        id: 15,
         title: "Corporate Identity Suite",
         category: "Business Art",
         image: "assets/img/customizedBusinessArt/1.jpeg",
